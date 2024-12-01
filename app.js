@@ -4,11 +4,11 @@ const jwt = require("jsonwebtoken");
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const bodyParser = require("body-parser");
-require("dotenv").config();
+require("dotenv").config(); // Loads environment variables from .env file
 
 const app = express();
-const PORT = 8001;
-const SECRET_KEY = process.env.SECRET_KEY || "supersecretkey";
+const PORT = process.env.PORT || 8001; // Use the value from .env or default to 8001
+const SECRET_KEY = process.env.SECRET_KEY || "supersecretkey"; // Use the value from .env or default
 
 // Middleware
 app.use(bodyParser.json());
